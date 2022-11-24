@@ -7,6 +7,7 @@ enum MyThemeKeys { LIGHT, DARK }
 
 class MyThemes {
   static final ThemeData lightTheme = ThemeData(
+    iconTheme: IconThemeData(color: AppColors.kDark),
     scaffoldBackgroundColor: AppColors.kLight,
     primaryColor: AppColors.kLight,
     appBarTheme: AppBarTheme(
@@ -18,11 +19,12 @@ class MyThemes {
     ),
     backgroundColor: AppColors.kLight,
     brightness: Brightness.light,
-    highlightColor: AppColors.kLight,
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Colors.blue,
+    highlightColor: AppColors.kDark,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      elevation: 10,
+      backgroundColor: AppColors.primary,
       focusColor: Colors.blueAccent,
-      splashColor: Colors.lightBlue,
+      splashColor: AppColors.primary,
     ),
     textSelectionTheme:
         const TextSelectionThemeData(selectionColor: Colors.black),
