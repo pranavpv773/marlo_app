@@ -14,6 +14,8 @@ class InviteScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
+          splashRadius: 20,
+          splashColor: AppColors.primary,
           onPressed: () {
             AppRoutes.backScreen();
           },
