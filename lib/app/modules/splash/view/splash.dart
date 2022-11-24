@@ -11,35 +11,36 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      context.read<SplashNotifier>().goScreenOne();
-    });
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        color: AppColors.primary.withOpacity(
-          0.5,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              AppImages.teams,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: Text(
-                "If everyone is moving forward together,then success takes care of itself",
-                style: AppTextstyles.h1.copyWith(
-                  fontSize: 24.sp,
-                ),
+      body: Consumer<SplashNotifier>(builder: (context, val, _) {
+        return Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: AppColors.primary.withOpacity(
+            0.5,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                AppImages.teams,
               ),
-            )
-          ],
-        ),
-      ),
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 30.0.w,
+                ),
+                child: Text(
+                  "If everyone is moving forward together,then success takes care of itself",
+                  style: AppTextstyles.h1.copyWith(
+                    fontSize: 24.sp,
+                  ),
+                ),
+              )
+            ],
+          ),
+        );
+      }),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:marlo_app/app/app_routes/app_routes.dart';
+import 'package:marlo_app/app/modules/global/view_model/global_notifier.dart';
 import 'package:marlo_app/app/modules/splash/view/splash.dart';
 import 'package:marlo_app/app/modules/splash/view_model/splash_notifier.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (create) => SplashNotifier(),
+        ),
+        ChangeNotifierProvider(
+          create: (create) => GlobalNotifier(),
         ),
       ],
       child: ScreenUtilInit(
