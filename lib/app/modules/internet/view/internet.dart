@@ -18,7 +18,7 @@ class NoInternet extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                context.read<SplashNotifier>().goScreenOne();
+                context.read<SplashNotifier>().goScreenOne(context);
               },
               child: const Text("Try Again"))
         ],

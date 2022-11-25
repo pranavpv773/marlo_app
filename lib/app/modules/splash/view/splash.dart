@@ -11,6 +11,9 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPersistentFrameCallback((timeStamp) {
+      context.read<SplashNotifier>().goScreenOne(context);
+    });
     return Scaffold(
       body: Consumer<SplashNotifier>(builder: (context, val, _) {
         return Container(
