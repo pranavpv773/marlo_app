@@ -1,18 +1,19 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/widgets.dart';
 import 'package:marlo_app/app/app_routes/app_routes.dart';
+import 'package:marlo_app/app/modules/contracts/screen_one/view_model/contract_notifier.dart';
 import 'package:marlo_app/app/modules/global/view/global.dart';
 import 'package:marlo_app/app/modules/internet/view/internet.dart';
+import 'package:provider/provider.dart';
 
 class SplashNotifier with ChangeNotifier {
-  SplashNotifier() {
-    goScreenOne();
-  }
   bool checkingButton = false;
 
-  goScreenOne() async {
+  goScreenOne(BuildContext context) async {
     final check = await checking();
 
     await Future.delayed(
@@ -20,6 +21,7 @@ class SplashNotifier with ChangeNotifier {
         seconds: 3,
       ),
     );
+    await context.read<ContractNotifier>().fetchTeamFn();
     AppRoutes.removeScreenUntil(
       screen: check == true ? const GlobalScreen() : const NoInternet(),
     );
