@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:marlo_app/app/app_style/app_color/app_colors.dart';
 
 class AppTextstyles {
   static String? fontFamily = GoogleFonts.notoSans().fontFamily;
 
   static TextStyle h1 = TextStyle(
     fontFamily: GoogleFonts.heebo().fontFamily,
-    color: AppColors.kDark,
     letterSpacing: 0.1,
     fontWeight: FontWeight.w800,
     fontSize: 34.sp,
   );
   static TextStyle darkH1 = TextStyle(
     fontFamily: GoogleFonts.heebo().fontFamily,
-    color: AppColors.kDark,
     letterSpacing: 0.1,
     fontWeight: FontWeight.w800,
     fontSize: 34.sp,

@@ -1,6 +1,8 @@
 // ignore_for_file: body_might_complete_normally_nullable
 import 'package:flutter/material.dart';
 import 'package:marlo_app/app/app_style/app_color/app_colors.dart';
+import 'package:marlo_app/app/modules/contracts/screen_two/view_model/invite_notifier.dart';
+import 'package:provider/provider.dart';
 
 class TextformFieldWidget extends StatelessWidget {
   const TextformFieldWidget({
@@ -21,11 +23,13 @@ class TextformFieldWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: TextFormField(
-          // controller: controller,
-          keyboardType: TextInputType.name,
+          controller: context.read<InviteNotifier>().emailCntrl,
+          keyboardType: TextInputType.emailAddress,
           validator: (value) {
             if (value!.isEmpty) {
-              return " Please fill this field";
+              context.read<InviteNotifier>().isValidEmail(value)
+                  ? null
+                  : "Invalid mail";
             }
           },
           decoration: InputDecoration(

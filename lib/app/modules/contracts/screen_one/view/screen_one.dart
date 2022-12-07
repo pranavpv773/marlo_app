@@ -5,6 +5,7 @@ import 'package:marlo_app/app/app_style/app_color/app_colors.dart';
 import 'package:marlo_app/app/app_style/app_textstyle/text_styles.dart';
 import 'package:marlo_app/app/modules/contracts/screen_one/view_model/contract_notifier.dart';
 import 'package:marlo_app/app/modules/contracts/screen_two/view/invite.dart';
+import 'package:marlo_app/app/modules/contracts/screen_two/view_model/invite_notifier.dart';
 import 'package:provider/provider.dart';
 
 class ScreenOne extends StatelessWidget {
@@ -12,6 +13,8 @@ class ScreenOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<InviteNotifier>().roleCntrl.text =
+        context.read<InviteNotifier>().roles[0];
     return Scaffold(
       appBar: AppBar(
         title: Text(

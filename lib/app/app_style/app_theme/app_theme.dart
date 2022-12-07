@@ -11,7 +11,7 @@ class MyThemes {
     scaffoldBackgroundColor: AppColors.kLight,
     primaryColor: AppColors.kLight,
     appBarTheme: AppBarTheme(
-      // titleTextStyle: AppTextstyles.h1.copyWith(
+      titleTextStyle: TextStyle(color: AppColors.kDark),
       //   color: AppColors.kDark,
       // ),
       elevation: 0,
@@ -35,12 +35,19 @@ class MyThemes {
     scaffoldBackgroundColor: AppColors.kDark,
     appBarTheme: AppBarTheme(
       color: AppColors.kDark,
+      titleTextStyle: TextStyle(color: AppColors.kLight),
       elevation: 0,
     ),
     primaryColor: AppColors.kDark,
     brightness: Brightness.dark,
     highlightColor: Colors.white,
     backgroundColor: Colors.black54,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      elevation: 10,
+      backgroundColor: AppColors.primary,
+      focusColor: Colors.blueAccent,
+      splashColor: AppColors.primary,
+    ),
     textSelectionTheme:
         const TextSelectionThemeData(selectionColor: Colors.grey),
   );

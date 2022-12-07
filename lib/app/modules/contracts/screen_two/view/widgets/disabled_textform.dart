@@ -1,11 +1,12 @@
 // ignore_for_file: body_might_complete_normally_nullable
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/ri.dart';
 import 'package:marlo_app/app/app_style/app_color/app_colors.dart';
+import 'package:marlo_app/app/modules/contracts/screen_two/view_model/invite_notifier.dart';
+import 'package:provider/provider.dart';
 
 class DisabledTextformFieldWidget extends StatelessWidget {
   const DisabledTextformFieldWidget({
@@ -24,7 +25,7 @@ class DisabledTextformFieldWidget extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: TextFormField(
           //enabled: false,
-          // controller: controller,
+          controller: context.read<InviteNotifier>().roleCntrl,
           validator: (value) {
             if (value!.isEmpty) {
               return " Please fill this field";
@@ -35,7 +36,7 @@ class DisabledTextformFieldWidget extends StatelessWidget {
             filled: true,
             suffixIcon: IconButton(
               onPressed: () {
-                log("message");
+                context.read<InviteNotifier>().settingModalBottomSheet(context);
               },
               icon: Iconify(
                 Ri.arrow_drop_down_line,
